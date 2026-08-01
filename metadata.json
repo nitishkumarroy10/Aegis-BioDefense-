@@ -1,0 +1,6 @@
+{
+  "name": "Aegis BioDefense",
+  "description": "Ultra-premium pest control, bio-shield defense, and AI-powered smart property protection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account information and saved preferences",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "InspectionBooking": {
+      "title": "Inspection Booking",
+      "description": "Booked rapid acoustic inspection or estate scan",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "fullName": { "type": "string" },
+        "phone": { "type": "string" },
+        "city": { "type": "string" },
+        "propertyType": { "type": "string" },
+        "sqft": { "type": "number" },
+        "preferredDate": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "fullName", "phone", "city"]
+    },
+    "Quote": {
+      "title": "AMC Quote",
+      "description": "Calculated Bio-Defense Annual Maintenance Contract Quote",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "planName": { "type": "string" },
+        "amount": { "type": "number" },
+        "city": { "type": "string" },
+        "sqft": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "planName", "amount"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile document"
+    },
+    "/inspections/{inspectionId}": {
+      "schema": { "$ref": "#/entities/InspectionBooking" },
+      "description": "Inspection booking requests"
+    },
+    "/quotes/{quoteId}": {
+      "schema": { "$ref": "#/entities/Quote" },
+      "description": "Calculated AMC quotes"
+    }
+  }
+}
